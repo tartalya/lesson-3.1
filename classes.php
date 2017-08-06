@@ -1,17 +1,23 @@
 <?php
 
-class car {
+class Car
+    {
 
     public $color;
     private $maxSpeed;
     public $wheels = 4;
     private $speed = 0;
-    public $model;
+    private $model;
 
     public function __construct($color, $model) {
 
         $this->model = $model;
         $this->color = $color;
+    }
+
+    public function getModel() {
+
+        return $this->model;
     }
 
     public function throttle($speed) {
@@ -21,13 +27,14 @@ class car {
     }
 
     public function getSpeed() {
-        
-        return $this->speed;
-        
-    }
-}
 
-class tv {
+        return $this->speed;
+    }
+
+    }
+
+class Tv
+    {
 
     private $color = 'black'; //в большистве случаев, так что примем за дефолт
     private $screenSize;
@@ -42,31 +49,39 @@ class tv {
         $this->channel = $channel;
     }
 
-}
+    }
 
-class pen {
+class Pen
+    {
 
     private $color; //Пожалуй самое распространненое свойство
-    private $inkAmount; // %
-    private $inkColor = 'blue';
+    private $inkAmount = 100; // %
+    private $inkColor;
     private $text;
-    
+
+    public function __construct($color = 'black', $inkColor = 'blue') {
+
+        $this->color = $color;
+        $this->inkColor = $inkColor;
+    }
+
     public function write($text) {
 
+        $this->inkAmount = -strlen($text) / 100; //Предположим что расход 1 процент на 100 символов
         $this->text .= $text . '<br>';
-        
-        return true;
+
+        return $text;
     }
-    
+
     public function showText() {
-        
+
         return $this->text;
-        
     }
 
-}
+    }
 
-class urinal {
+class Urinal
+    {
 
     private $color;
     private $material = 'iron';
@@ -92,9 +107,10 @@ class urinal {
         }
     }
 
-}
+    }
 
-class product {
+class Product
+    {
 
     private $color;
     private $price;
@@ -116,11 +132,11 @@ class product {
     }
 
     public function showprice() {
-        
-        
+
+
         return $this->price;
-        
     }
+
     public function setPrice($price) {
 
 
@@ -135,39 +151,34 @@ class product {
         }
     }
 
-}
+    }
 
-class news {
-    
+class News
+    {
+
     private $text;
     private $date;
     private $categoty;
     private $string;
-    
-    
+
     public function add($text, $category = 'other') {
-        
+
         $this->date[] = date("F j, Y, G:i G", strtotime("+3 hours"));
         $this->text[] = $text;
         $this->categoty[] = $category;
-        
-        
     }
-    
+
     public function show() {
-        
-        
-       
+
+
+
         foreach ($this->text as $key => $value) {
-        
-            
-        $this->string .= $this->categoty[$key] . '<br>' . $this->date[$key] .'<br>' . $this->text[$key] . '<br><br>';
-        
+
+
+            $this->string .= $this->categoty[$key] . '<br>' . $this->date[$key] . '<br>' . $this->text[$key] . '<br><br>';
         }
-        
+
         return $this->string;
-        
-         
     }
-    
-}
+
+    }
