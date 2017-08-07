@@ -163,7 +163,7 @@ class Product
 
     }
 
-class News
+class NewsPaper
     {
 
     private $text;
