@@ -47,15 +47,40 @@ $myPen = new Pen();
 $myPen->write('Этот текст я написал сначала');
 $myPen->write('А потом я решил дописать еще немного текста');
 
-echo $myPen->showText(); 
+//echo $myPen->showText(); 
+
+echo '<br>';
+echo 'В моей ручке осталось чернил ' . $myPen->checkInk() . '%';
+echo '<br>';
+
+
+
+
 
 
 $unknowPen = new Pen();
 
 $unknowPen->write('А потом я нашел на полу какую то ручку и написал еще одно предложение ею');
 
-echo $unknowPen->showText();
+//echo $unknowPen->showText();
 
+
+echo '<br>';
+echo 'В найденной ручке осталось чернил ' . $unknowPen->checkInk() . '%';
+echo '<br>';
+echo '<br>';
+echo '<br>';
+echo '<br>';
+
+echo 'И потом я посмотрел что у меня написано не листе бумаги ';
+
+echo '<br>';
+echo '<br>';
+
+echo Pen::$paper; //попробую поиграться со статикой
+
+echo '<br>';
+echo '<br>';
 
 $tvInRoom = new Tv();
 $tvInkitchen = new Tv();

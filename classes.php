@@ -23,7 +23,8 @@ class Car
     public function throttle($speed) {
 
         $this->speed = $speed;
-        return $this->speed;
+
+        return $this->getSpeed();
     }
 
     public function getSpeed() {
@@ -58,6 +59,7 @@ class Pen
     private $inkAmount = 100; // %
     private $inkColor;
     private $text;
+    public static $paper;
 
     public function __construct($color = 'black', $inkColor = 'blue') {
 
@@ -67,15 +69,23 @@ class Pen
 
     public function write($text) {
 
-        $this->inkAmount = -strlen($text) / 100; //Предположим что расход 1 процент на 100 символов
-        $this->text .= $text . '<br>';
-
-        return $text;
+        $this->inkAmount = round($this->inkAmount - strlen($text) / 100); //Предположим что расход 1 процент на 100 символов
+        $this->text = $text . '<br>';
+        self::$paper .= $text . '<br>';
+        
+        echo $this->text;
+        
+        return true; 
     }
 
     public function showText() {
 
         return $this->text;
+    }
+
+    public function checkInk() {
+
+        return $this->inkAmount;
     }
 
     }
