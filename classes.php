@@ -9,28 +9,32 @@ class Car
     private $speed = 0;
     private $model;
 
-    public function __construct($color, $model) {
+    public function __construct($color, $model)
+        {
 
         $this->model = $model;
         $this->color = $color;
-    }
+        }
 
-    public function getModel() {
+    public function getModel()
+        {
 
         return $this->model;
-    }
+        }
 
-    public function throttle($speed) {
+    public function throttle($speed)
+        {
 
         $this->speed = $speed;
 
-        return $this->getSpeed();
-    }
+        return $this;
+        }
 
-    public function getSpeed() {
+    public function getSpeed()
+        {
 
         return $this->speed;
-    }
+        }
 
     }
 
@@ -43,12 +47,13 @@ class Tv
     private $channel;
     private $model;
 
-    public function show($channel) {
+    public function show($channel)
+        {
 
         // $this->currentShow = getChannelName($channel, time()) {} а тут можно сходить куданнибудь в интернет за программой телепередач
         // и узнать что там сейчас показывают
         $this->channel = $channel;
-    }
+        }
 
     }
 
@@ -61,32 +66,36 @@ class Pen
     private $text;
     public static $paper;
 
-    public function __construct($color = 'black', $inkColor = 'blue') {
+    public function __construct($color = 'black', $inkColor = 'blue')
+        {
 
         $this->color = $color;
         $this->inkColor = $inkColor;
-    }
+        }
 
-    public function write($text) {
+    public function write($text)
+        {
 
         $this->inkAmount = round($this->inkAmount - strlen($text) / 100); //Предположим что расход 1 процент на 100 символов
         $this->text = $text . '<br>';
         self::$paper .= $text . '<br>';
-        
-        echo $this->text;
-        
-        return true; 
-    }
 
-    public function showText() {
+        echo $this->text;
+
+        return true;
+        }
+
+    public function showText()
+        {
 
         return $this->text;
-    }
+        }
 
-    public function checkInk() {
+    public function checkInk()
+        {
 
         return $this->inkAmount;
-    }
+        }
 
     }
 
@@ -99,13 +108,15 @@ class Urinal
     private $maxCapacity;
     private $model;
 
-    public function __construct($model = 'Самая обычная', $maxCapacity = 100) {
+    public function __construct($model = 'Самая обычная', $maxCapacity = 100)
+        {
 
         $this->model = $model;
         $this->maxCapacity = $maxCapacity;
-    }
+        }
 
-    public function piss($amount) {
+    public function piss($amount)
+        {
 
         if ($this->maxCapacity > $amount) {
             $this->capacity = $this->maxCapacity - $amount;
@@ -115,7 +126,7 @@ class Urinal
             echo 'Пора бы вылить';
             return false;
         }
-    }
+        }
 
     }
 
@@ -130,7 +141,8 @@ class Product
     private $discount;
     private $model;
 
-    public function __construct($model, $color, $price, $size, $category = 'other products', $madein = 'china', $discount = 0) {
+    public function __construct($model, $color, $price, $size, $category = 'other products', $madein = 'china', $discount = 0)
+        {
 
         $this->model = $model;
         $this->color = $color;
@@ -139,15 +151,17 @@ class Product
         $this->size = $size;
         $this->madein = $madein;
         $this->discount = $discount;
-    }
+        }
 
-    public function showprice() {
+    public function showprice()
+        {
 
 
         return $this->price;
-    }
+        }
 
-    public function setPrice($price) {
+    public function setPrice($price)
+        {
 
 
         if ($price <= 0) {
@@ -159,7 +173,7 @@ class Product
 
             return true;
         }
-    }
+        }
 
     }
 
@@ -171,14 +185,16 @@ class NewsPaper
     private $categoty;
     private $string;
 
-    public function add($text, $category = 'other') {
+    public function add($text, $category = 'other')
+        {
 
         $this->date[] = date("F j, Y, G:i G", strtotime("+3 hours"));
         $this->text[] = $text;
         $this->categoty[] = $category;
-    }
+        }
 
-    public function show() {
+    public function show()
+        {
 
 
 
@@ -189,6 +205,6 @@ class NewsPaper
         }
 
         return $this->string;
-    }
+        }
 
     }

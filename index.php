@@ -13,8 +13,11 @@ echo 'Моя машина ' . $myCar->color . ' Цвета';
 echo '<br>';
 
 echo 'Разгоняемся до 100км/час';
+
+$myCar->throttle(100);
+
 echo '<br>';
-echo 'Теперь наша скорость ' . $myCar->throttle(100) . 'км/час';
+echo 'Теперь наша скорость ' . $myCar->getSpeed() . 'км/час';
 echo '<br>';
 echo 'У моей машины ' . $myCar->wheels . ' колеса';
 
@@ -32,13 +35,11 @@ echo '<br>';
 //$wifeCar->throttle(50);
 
 if ($wifeCar->getSpeed() > 0) {
-echo 'Теперь наша скорость ' . $wifeCar->getSpeed() . 'км/час';
+    echo 'Теперь наша скорость ' . $wifeCar->getSpeed() . 'км/час';
+} else {
+
+    echo 'Машина стоит во дворе';
 }
-    else {
-        
-        echo 'Машина стоит во дворе';
-        
-    }
 
 echo '<br>';
 
@@ -99,7 +100,7 @@ $mySmartphone->setPrice('8500'); //откорректируем цену
 echo 'Мой смартфон стоит ' . $mySmartphone->showprice() . 'руб.';
 
 echo '<br><br>';
-echo 'Минутка новостей'; 
+echo 'Минутка новостей';
 
 $news = new NewsPaper();
 
